@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.attend.mapper.CommentMapper" >
+  <!--<resultMap id="BaseResultMap" type="bid" >-->
+    <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+    <!--<result column="member_id" property="memberId" jdbcType="INTEGER" />-->
+    <!--<result column="article_id" property="articleId" jdbcType="INTEGER" />-->
+  <!--</resultMap>-->
+
+  <select id="findPageCommentByMemberId" parameterType="java.lang.Integer" resultType="com.attend.dto.CommentDTO">
+    select
+      a.type, a.title, c.content, c.create_time as createTime, c.member_id as memberId , m.name as memberName
+    from t_comment c
+    left join t_article a on a.id = c.article_id
+    left join t_member m on m.id = c.member_Id
+    where a.create_by = #{memberId} order by c.id desc
+  </select>
+  
+  <select id="findCountCommentByMemberId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select count(a.id) from t_article a left join t_comment c on a.id = c.article_id where a.create_by = #{memberId};
+  </select>
+</mapper>
