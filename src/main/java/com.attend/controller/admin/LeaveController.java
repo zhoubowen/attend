@@ -1,6 +1,7 @@
 package com.attend.controller.admin;
 
 import com.attend.constant.CommonConstant;
+import com.attend.constant.StatusEnum;
 import com.attend.entity.Leave;
 import com.attend.param.LeaveQueryParam;
 import com.attend.service.LeaveService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  */
@@ -25,7 +27,11 @@ public class LeaveController {
     public ModelAndView index(LeaveQueryParam leaveQueryParam, PageUtil pageUtil){
         ModelAndView modelAndView = new ModelAndView();
         List<Leave> list = leaveService.findForPage(leaveQueryParam, pageUtil);
-        modelAndView.setViewName("/admin/leave");
+        if(Objects.equals(StatusEnum.LeaveTypeEnum.LEAVE.getType(), leaveQueryParam.getType())){
+            modelAndView.setViewName("/admin/leave");
+        }else{
+            modelAndView.setViewName("/admin/travel");
+        }
         modelAndView.addObject("list", list);
         modelAndView.addObject("page", pageUtil);
         return modelAndView;
@@ -35,7 +41,7 @@ public class LeaveController {
     public String update(Leave leave){
         leave.setStatus(CommonConstant.VALID);
         leaveService.update(leave);
-        return "redirect:/admin/leave/index";
+        return "redirect:/admin/leave/index?type=" + leave.getType();
     }
 
 }

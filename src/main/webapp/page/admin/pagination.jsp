@@ -43,7 +43,7 @@
         </c:choose>
 
         <c:choose>
-            <c:when test="${page.page <= page.pageCount}">
+            <c:when test="${page.page == page.pageCount || page.pageCount == 0}">
                 <li class="active"><a href="javascript:;">下一页</a></li>
             </c:when>
             <c:otherwise>

@@ -11,7 +11,7 @@
 
 <div class="page-container row-fluid">
 
-    <jsp:include page="menu.jsp?m=2" flush="true"/>
+    <jsp:include page="menu.jsp?m=3" flush="true"/>
 
     <div class="page-content">
 
@@ -26,10 +26,10 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/member/index">请假信息审批</a>
+                            <a href="/admin/member/index">出差信息审批</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">请假信息审批列表</a></li>
+                        <li><a href="#">出差信息审批列表</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="icon-globe"></i>请假信息审批列表
+                                <i class="icon-globe"></i>出差信息审批列表
                             </div>
                         </div>
 
@@ -51,8 +51,8 @@
                                 <thead>
                                 <tr>
                                     <th>员工姓名</th>
-                                    <th class="hidden-480">请假理由</th>
-                                    <th class="hidden-480">请假时间</th>
+                                    <th class="hidden-480">出差事由</th>
+                                    <th class="hidden-480">出差时间</th>
                                     <th class="hidden-480">天数</th>
                                     <th class="hidden-480">审批状态</th>
                                     <th >操作</th>

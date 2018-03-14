@@ -26,6 +26,7 @@ public class Leave {
     @Transient
     private Member member;
     private String content;
+    private Integer type;
 
     public Integer getId() {
         return id;
@@ -105,6 +106,14 @@ public class Leave {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     @Override
