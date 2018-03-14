@@ -9,8 +9,6 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 会员信息
- * Created by bowen on 2018-02-27 00:20
  */
 @Entity
 @Table(name = "t_member")

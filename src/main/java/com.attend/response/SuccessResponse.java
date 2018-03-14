@@ -1,7 +1,6 @@
 package com.attend.response;
 
 /**
- * Created by bowen on 2018-03-06 23:10
  */
 public class SuccessResponse<T> extends BaseResponse {
     public SuccessResponse() {

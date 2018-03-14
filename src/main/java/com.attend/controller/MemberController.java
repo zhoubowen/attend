@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Created by bowen on 2018-02-27 00:25
  */
 @Controller
 @RequestMapping("/member/")

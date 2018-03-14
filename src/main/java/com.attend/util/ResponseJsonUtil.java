@@ -10,7 +10,6 @@ import java.io.IOException;
 
 
 /**
- * 输出Json字符串到客户端工具类
  */
 public class ResponseJsonUtil {
 	

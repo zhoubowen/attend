@@ -5,6 +5,7 @@ import com.attend.entity.Member;
 import com.attend.param.MemberQueryParam;
 import com.attend.service.MemberService;
 import java.util.List;
+import java.util.Objects;
 
 import com.attend.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,17 +34,25 @@ public class MemberManagerController
     @RequestMapping({"input"})
     public ModelAndView input(Integer memberId)
     {
-        Member member = this.memberService.findByMemberId(memberId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/admin/memberInput");
-        modelAndView.addObject("member", member);
-        return modelAndView;
+        if(Objects.isNull(memberId)){
+            return  modelAndView;
+        }else {
+            Member member = this.memberService.findByMemberId(memberId);
+            modelAndView.addObject("member", member);
+            return modelAndView;
+        }
     }
 
     @RequestMapping({"save"})
     public String save(Member memer)
     {
-        this.memberService.update(memer);
+        if(Objects.isNull(memer.getId())){
+            memberService.add(memer);
+        }else{
+            memberService.update(memer);
+        }
         return "redirect:/admin/member/index";
     }
 

@@ -3,7 +3,6 @@ package com.attend.response;
 import java.io.Serializable;
 
 /**
- * Created by bowen on 2018-03-06 23:06
  */
 public class BaseResponse<T> implements Serializable{
 

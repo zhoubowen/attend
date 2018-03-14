@@ -29,10 +29,10 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/member/index">会员信息</a>
+                            <a href="/admin/member/index">员工信息</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">会员信息编辑</a></li>
+                        <li><a href="#">员工信息编辑</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
 
                     <div class="portlet box blue">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>会员基本信息</div>
+                            <div class="caption"><i class="icon-reorder"></i>员工基本信息</div>
                         </div>
                         <div class="portlet-body form">
 
@@ -53,16 +53,28 @@
                                 <div class="control-group">
                                     <label class="control-label">账号</label>
                                     <div class="controls">
-                                        <input type="text" name="account" class="span6 m-wrap" value="${member.account}">
-                                        <span class="help-inline">Some hint here</span>
+                                        <input type="text" name="account" class="m-wrap" value="${member.account}">
                                     </div>
                                 </div>
 
                                 <div class="control-group">
-                                    <label class="control-label">昵称</label>
+                                    <label class="control-label">密码</label>
                                     <div class="controls">
-                                        <input type="text" name="name" class="span6 m-wrap" value="${member.name}">
-                                        <span class="help-inline">Some hint here</span>
+                                        <input type="password" name="password" class="m-wrap" value="${member.password}">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">姓名</label>
+                                    <div class="controls">
+                                        <input type="text" name="name" class="m-wrap" value="${member.name}">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">手机号</label>
+                                    <div class="controls">
+                                        <input class="m-wrap" name="phone" type="text" value="${member.phone}" />
                                     </div>
                                 </div>
 
@@ -73,14 +85,6 @@
                                             <i class="icon-envelope"></i>
                                             <input class="m-wrap " name="email" type="text" value="${member.email}" />
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <label class="control-label">所属公司</label>
-                                    <div class="controls">
-                                        <input type="text" name="company" class="span6 m-wrap" value="${member.company}">
-                                        <span class="help-inline">Some hint here</span>
                                     </div>
                                 </div>
 

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by bowen on 2018-03-05 14:23
  */
 public class LoginInterceptor implements HandlerInterceptor {
 

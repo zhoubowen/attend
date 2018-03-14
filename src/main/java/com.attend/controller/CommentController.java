@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by bowen on 2018-03-06 23:02
  */
 @Controller
 @RequestMapping("/comment/")

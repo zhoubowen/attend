@@ -16,7 +16,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by bowen on 2018-03-06 22:55
  */
 @Service
 public class CommentServiceImpl implements CommentService{

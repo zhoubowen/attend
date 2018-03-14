@@ -6,8 +6,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 招商供求
- * Created by bowen on 2018-02-27 12:49
  */
 @Entity
 @Table(name = "t_article")

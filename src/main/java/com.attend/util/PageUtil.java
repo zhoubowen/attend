@@ -4,8 +4,6 @@ package com.attend.util;
 import java.io.Serializable;
 
 /**
- * 分页对象
- * Created by bowen on 2018-02-27 02:20
  */
 public class PageUtil implements Serializable {
 

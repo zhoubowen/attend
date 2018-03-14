@@ -1,7 +1,6 @@
 package com.attend.constant;
 
 /**
- * Created by bowen on 2018-03-01 12:53
  */
 public class CommonConstant {
 

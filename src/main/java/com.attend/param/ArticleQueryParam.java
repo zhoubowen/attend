@@ -1,7 +1,6 @@
 package com.attend.param;
 
 /**
- * Created by bowen on 2018-02-27 22:42
  */
 public class ArticleQueryParam {
     private Integer type = 0;

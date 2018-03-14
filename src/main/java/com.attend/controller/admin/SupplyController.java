@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Created by bowen on 2018-02-28 21:48
  */
 @Controller
 @RequestMapping("/admin/supply/")

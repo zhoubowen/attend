@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Created by bowen on 2018-03-02 22:12
  */
 @Controller
 @RequestMapping("/upload/")

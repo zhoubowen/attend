@@ -7,7 +7,6 @@ import com.attend.util.PageUtil;
 import java.util.List;
 
 /**
- * Created by bowen on 2018-02-27 22:42
  */
 public interface ArticleService {
 

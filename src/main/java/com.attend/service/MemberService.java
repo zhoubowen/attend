@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by bowen on 2018-02-27 00:24
  */
 public interface MemberService {
 

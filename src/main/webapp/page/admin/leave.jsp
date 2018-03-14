@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 
 <jsp:include page="header.jsp" flush="true"/>
 
@@ -9,7 +11,7 @@
 
 <div class="page-container row-fluid">
 
-    <jsp:include page="menu.jsp?m=0" flush="true"/>
+    <jsp:include page="menu.jsp?m=2" flush="true"/>
 
     <div class="page-content">
 
@@ -24,10 +26,10 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/member/index">员工信息</a>
+                            <a href="/admin/member/index">请假信息审批</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">员工列表</a></li>
+                        <li><a href="#">请假信息审批列表</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,10 +41,7 @@
 
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="icon-globe"></i>员工列表
-                            </div>
-                            <div class="tools">
-                                <a href="/admin/member/input" class="add" title="添加员工"></a>
+                                <i class="icon-globe"></i>请假信息审批列表
                             </div>
                         </div>
 
@@ -51,11 +50,11 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>账号</th>
-                                    <th class="hidden-480">邮箱</th>
-                                    <th class="hidden-480">姓名</th>
-                                    <th class="hidden-480">手机号码</th>
-                                    <%--<th class="hidden-480">参与排班</th>--%>
+                                    <th>员工姓名</th>
+                                    <th class="hidden-480">请假理由</th>
+                                    <th class="hidden-480">请假时间</th>
+                                    <th class="hidden-480">天数</th>
+                                    <th class="hidden-480">审批状态</th>
                                     <th >操作</th>
                                 </tr>
 
@@ -64,14 +63,23 @@
                                 <tbody>
                                 <c:forEach var="item" items="${list}">
                                     <tr class="odd gradeX">
-                                        <td>${item.account}</td>
-                                        <td class="hidden-480"><a href="mailto:shuxer@gmail.com">${item.email}</a></td>
-                                        <td class="hidden-480">${item.name}</td>
-                                        <td class="center hidden-480">${item.phone}</td>
-                                        <%--<td class="center hidden-480">${item.joinSchedue == 1 ? '是' : '否'}</td>--%>
+                                        <td>${item.member.name}</td>
+                                        <td class="hidden-480">${item.content}</td>
+                                        <td class="hidden-480">
+                                            <fmt:formatDate value="${item.beginDate}" pattern="yyyy-MM-dd HH:mm:ss"/> ~
+                                            <fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                        </td>
+                                        <td class="center hidden-480">${item.days}</td>
+                                        <td class="center hidden-480">${item.status == 0 ? '待审批' : '审批通过'}</td>
                                         <td >
-                                            <a class="btn green" href="/admin/member/input?memberId=${item.id}">编辑</a>
-                                            <a class="btn red" data-toggle = "modal" data-id= "${item.id}" data-target="#static">删除</a>
+                                            <c:choose>
+                                                <c:when test="${item.status == 0}">
+                                                    <a class="btn green" href="/admin/leave/update?id=${item.id}">同意</a>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    -
+                                                </c:otherwise>
+                                            </c:choose>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -116,11 +124,11 @@
     jQuery(document).ready(function () {
         App.init();
         TableManaged.init();
-        $('#static').on('show.bs.modal', function (event) {
-            var btnThis = $(event.relatedTarget); //触发事件的按钮
-            var memberId = btnThis.data("id");
-            $(this).find('input[name=memberId]').val(memberId);
-        });
+//        $('#static').on('show.bs.modal', function (event) {
+//            var btnThis = $(event.relatedTarget); //触发事件的按钮
+//            var memberId = btnThis.data("id");
+//            $(this).find('input[name=memberId]').val(memberId);
+//        });
 
     });
 

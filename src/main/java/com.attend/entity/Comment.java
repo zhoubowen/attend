@@ -7,8 +7,6 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 投标信息
- * Created by bowen on 2018-02-27 12:52
  */
 @Entity
 @Table(name = "t_comment")

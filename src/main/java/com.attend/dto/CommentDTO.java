@@ -3,7 +3,6 @@ package com.attend.dto;
 import java.util.Date;
 
 /**
- * Created by bowen on 2018-03-07 00:06
  */
 public class CommentDTO {
     private Integer type;

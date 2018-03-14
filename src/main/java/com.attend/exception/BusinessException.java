@@ -3,7 +3,6 @@ package com.attend.exception;
 import com.attend.constant.ErrorCodeEnum;
 
 /**
- * Created by bowen on 2018-02-28 01:01
  */
 public class BusinessException extends Exception{
     private int code;

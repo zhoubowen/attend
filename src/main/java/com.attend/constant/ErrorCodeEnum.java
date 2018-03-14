@@ -1,7 +1,6 @@
 package com.attend.constant;
 
 /**
- * Created by bowen on 2018-02-28 01:00
  */
 public enum ErrorCodeEnum {
     PARAM_NULL(10000, "必要参数为空"),

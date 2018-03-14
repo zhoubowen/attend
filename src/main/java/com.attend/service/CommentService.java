@@ -8,7 +8,6 @@ import com.attend.util.PageUtil;
 import java.util.List;
 
 /**
- * Created by bowen on 2018-03-06 22:54
  */
 public interface CommentService {
 

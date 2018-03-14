@@ -7,7 +7,6 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 /**
- * Created by bowen on 2018-02-27 20:27
  */
 public interface CommentMapper extends Mapper<Comment> {
 

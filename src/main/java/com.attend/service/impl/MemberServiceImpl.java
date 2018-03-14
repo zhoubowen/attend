@@ -24,7 +24,6 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * Created by bowen on 2018-02-27 00:25
  */
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -49,6 +48,8 @@ public class MemberServiceImpl implements MemberService {
     public List<Member> findForPage(MemberQueryParam memberQueryParam, PageUtil pageUtil) {
         PageHelper.startPage(pageUtil.getPage(), pageUtil.getSize());
         Example example = new Example(Member.class);
+        example.createCriteria().andNotEqualTo("status", CommonConstant.DELETE);
+        example.setOrderByClause("id DESC");
         List<Member> list = memberMapper.selectByExample(example);
         pageUtil.setRecordCount(memberMapper.selectCountByExample(example));
         return list;
@@ -56,6 +57,8 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public int add(Member member) {
+        member.setStatus(CommonConstant.VALID);
+        member.setJoinSchedue(CommonConstant.VALID);
         return memberMapper.insert(member);
     }
 
