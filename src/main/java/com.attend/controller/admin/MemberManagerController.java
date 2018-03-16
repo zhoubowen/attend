@@ -11,6 +11,7 @@ import com.attend.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -64,5 +65,12 @@ public class MemberManagerController
         member.setStatus(CommonConstant.DELETE);
         this.memberService.update(member);
         return "redirect:/admin/member/index";
+    }
+
+    @RequestMapping("memberList")
+    @ResponseBody
+    public List<Member> memberList(){
+        List<Member> list = memberService.findAllForValid();
+        return list;
     }
 }

@@ -41,6 +41,7 @@
     <mvc:resources location="/css/" mapping="/css/**"/>
     <mvc:resources location="/kindeditor/" mapping="/kindeditor/**"/>
     <mvc:resources location="/uploads/" mapping="/uploads/**"/>
+    <mvc:resources location="/fullcalendar/" mapping="/fullcalendar/**"/>
 
 
     <!--<mvc:interceptors>-->

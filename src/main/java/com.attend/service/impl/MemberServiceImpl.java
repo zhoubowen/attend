@@ -40,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<Member> findAllForValid() {
         Example example = new Example(Member.class);
-        example.createCriteria().andEqualTo("status", CommonConstant.VALID);
+        example.createCriteria().andEqualTo("joinSchedue", CommonConstant.VALID);
         return memberMapper.selectByExample(example);
     }
 
