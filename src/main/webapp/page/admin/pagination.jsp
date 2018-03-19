@@ -58,11 +58,13 @@
 <script>
     function linkTo(p) {
         var linkUrl = window.location.href;
-        var index = linkUrl.indexOf("&page");
+        var index = linkUrl.indexOf("page");
         if(index > 0){
             linkUrl = linkUrl.substr(0, index);
+        }else{
+            linkUrl += "?";
         }
-        linkUrl += "&page=" + p;
+        linkUrl += "page=" + p;
         window.location.href = linkUrl;
     }
 

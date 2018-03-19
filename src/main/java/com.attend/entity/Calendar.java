@@ -2,10 +2,7 @@ package com.attend.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -25,6 +22,8 @@ public class Calendar {
     @Column(name = "duty_end_date")
     private Date dutyEndDate;
     private Integer status;
+    @Transient
+    private Member member;
 
     public Integer getId() {
         return id;
@@ -64,6 +63,14 @@ public class Calendar {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
     }
 
     @Override

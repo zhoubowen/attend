@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.attend.mapper.CalendarMapper" >
+
+  <select id="findReportGroupMonth" resultType="com.attend.dto.CalendarChartDTO">
+    select
+        m.name,
+        case t.status
+        when 1 then '正常上班'
+        when 2 then '迟到'
+        when 3 then '旷工' else '未打卡' end  as status,
+        count(t.id) days,
+        date_format(t.duty_begin_date, '%Y-%m') month
+    from t_calendar t left join t_member m on t.user_id = m.id where t.status != 0 group by t.status, t.user_id;
+
+  </select>
+
+</mapper>
