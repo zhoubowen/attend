@@ -35,9 +35,13 @@ public class FullcalendarController {
     private MemberService memberService;
 
     @RequestMapping("index")
-    public ModelAndView index(){
+    public ModelAndView index(Integer type){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/admin/fullcalendar");
+        if(Objects.nonNull(type)){
+            modelAndView.setViewName("/member/fullcalendar");
+        }else {
+            modelAndView.setViewName("/admin/fullcalendar");
+        }
         return modelAndView;
     }
 

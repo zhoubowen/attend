@@ -1,10 +1,19 @@
 package com.attend.param;
 
 /**
- * Created by bowen on 2018-03-14 22:56
  */
 public class LeaveQueryParam {
     private Integer type;
+    private Integer memberId;
+
+
+    public Integer getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(Integer memberId) {
+        this.memberId = memberId;
+    }
 
     public Integer getType() {
         return type;

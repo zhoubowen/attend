@@ -32,7 +32,11 @@ public class CalendarServiceImpl implements CalendarService {
 
     @Override
     public List<CalendarVO> findMonthCalendar(CalendarParam calendarParam) {
-        List<Calendar> list = calendarMapper.selectAll();
+        Example example = new Example(Calendar.class);
+        if(Objects.nonNull(calendarParam.getMemberId())){
+            example.createCriteria().andEqualTo("userId", calendarParam.getMemberId());
+        }
+        List<Calendar> list = calendarMapper.selectByExample(example);
         return list.stream().map(t -> {
             Member member = memberMapper.selectByPrimaryKey(t.getUserId());
             CalendarVO calendarVO = new CalendarVO();

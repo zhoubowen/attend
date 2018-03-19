@@ -33,7 +33,11 @@ public class LeaveServiceImpl implements LeaveService{
     public List<Leave> findForPage(LeaveQueryParam leaveQueryParam, PageUtil pageUtil) {
         PageHelper.startPage(pageUtil.getPage(), pageUtil.getSize());
         Example example = new Example(Leave.class);
-        example.createCriteria().andEqualTo("type", leaveQueryParam.getType());
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("type", leaveQueryParam.getType());
+        if(Objects.nonNull(leaveQueryParam.getMemberId())){
+            criteria.andEqualTo("userId", leaveQueryParam.getMemberId());
+        }
         example.setOrderByClause("id DESC");
         List<Leave> list = leaveMapper.selectByExample(example);
         if(!CollectionUtils.isEmpty(list)){

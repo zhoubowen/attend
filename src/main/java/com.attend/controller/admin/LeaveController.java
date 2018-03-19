@@ -30,7 +30,11 @@ public class LeaveController {
         if(Objects.equals(StatusEnum.LeaveTypeEnum.LEAVE.getType(), leaveQueryParam.getType())){
             modelAndView.setViewName("/admin/leave");
         }else{
-            modelAndView.setViewName("/admin/travel");
+            if(Objects.nonNull(leaveQueryParam.getMemberId())){
+                modelAndView.setViewName("/member/travel");
+            }else{
+                modelAndView.setViewName("/admin/travel");
+            }
         }
         modelAndView.addObject("list", list);
         modelAndView.addObject("page", pageUtil);
