@@ -41,13 +41,12 @@
                             <div class="caption">
                                 <i class="icon-globe"></i>员工列表
                             </div>
-                            <div class="tools">
-                                <a href="/admin/member/input" class="add" title="添加员工"></a>
-                            </div>
+
                         </div>
 
                         <div class="portlet-body">
-
+                            <a class="btn green" href="/admin/member/input">添加员工</a>
+                            <hr/>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>

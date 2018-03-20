@@ -59,6 +59,7 @@ public class MemberServiceImpl implements MemberService {
     public int add(Member member) {
         member.setStatus(CommonConstant.VALID);
         member.setJoinSchedue(CommonConstant.VALID);
+        member.setPassword(MD5Util.EncoderByMd5(member.getPassword()));
         return memberMapper.insert(member);
     }
 
