@@ -30,7 +30,7 @@
             <ul class="sub-menu">
                 <li class="${param.m == 6 ? 'active' : '' }"><a href="/admin/fullcalendar/index?type=1">排班信息查看</a></li>
                 <li class="${param.m == 7 ? 'active' : '' }"><a href="/admin/leave/index?type=1&memberId=${sessionScope.memberId}">出差通知查看</a></li>
-                <li class="${param.m == 8 ? 'active' : '' }"><a href="/admin/supply/index?type=0&status=1">请假申请</a></li>
+                <li class="${param.m == 8 ? 'active' : '' }"><a href="/admin/leave/index?type=0&&memberId=${sessionScope.memberId}">请假申请</a></li>
                 <li class="${param.m == 9 ? 'active' : '' }"><a href="/admin/supply/index?type=0&status=1">考勤信息查询</a></li>
                 <li class="${param.m == 10 ? 'active' : '' }"><a href="/admin/supply/index?type=0&status=0">个人信息管理</a></li>
             </ul>

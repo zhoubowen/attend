@@ -1,5 +1,7 @@
 package com.attend.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,8 +15,10 @@ public class Leave {
     private Integer id;
     @Column(name ="user_id")
     private Integer userId;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "begin_date")
     private Date beginDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "end_date")
     private Date endDate;
     private Float days;

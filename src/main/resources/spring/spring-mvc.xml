@@ -42,6 +42,7 @@
     <mvc:resources location="/kindeditor/" mapping="/kindeditor/**"/>
     <mvc:resources location="/uploads/" mapping="/uploads/**"/>
     <mvc:resources location="/fullcalendar/" mapping="/fullcalendar/**"/>
+    <mvc:resources location="/My97DatePicker/" mapping="/My97DatePicker/**"/>
 
 
     <!--<mvc:interceptors>-->

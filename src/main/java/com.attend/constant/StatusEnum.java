@@ -5,8 +5,8 @@ package com.attend.constant;
 public class StatusEnum {
 
     public enum LeaveTypeEnum{
-        LEAVE(0),
-        TRAVEL(1);
+        LEAVE(0), //请假
+        TRAVEL(1); //出差
         private int type;
 
         LeaveTypeEnum(int type) {

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,7 +29,11 @@ public class LeaveController {
         ModelAndView modelAndView = new ModelAndView();
         List<Leave> list = leaveService.findForPage(leaveQueryParam, pageUtil);
         if(Objects.equals(StatusEnum.LeaveTypeEnum.LEAVE.getType(), leaveQueryParam.getType())){
-            modelAndView.setViewName("/admin/leave");
+            if(Objects.nonNull(leaveQueryParam.getMemberId())){
+                modelAndView.setViewName("/member/leave");
+            }else{
+                modelAndView.setViewName("/admin/leave");
+            }
         }else{
             if(Objects.nonNull(leaveQueryParam.getMemberId())){
                 modelAndView.setViewName("/member/travel");
@@ -46,6 +51,24 @@ public class LeaveController {
         leave.setStatus(CommonConstant.VALID);
         leaveService.update(leave);
         return "redirect:/admin/leave/index?type=" + leave.getType();
+    }
+
+
+    @RequestMapping("save")
+    public String save(Leave leave, HttpServletRequest request){
+        Integer memberId = (Integer) request.getSession().getAttribute("memberId");
+        leave.setStatus(CommonConstant.VERIFY);
+        leave.setType(StatusEnum.LeaveTypeEnum.LEAVE.getType());
+        leave.setUserId(memberId);
+        leaveService.add(leave);
+        return "redirect:/admin/leave/index?type=0&&memberId=" + memberId;
+    }
+
+    @RequestMapping("input")
+    public ModelAndView input(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/admin/leaveInput");
+        return modelAndView;
     }
 
 }
