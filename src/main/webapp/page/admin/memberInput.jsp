@@ -49,6 +49,7 @@
                             <form action="/admin/member/save" class="form-horizontal" method="post">
 
                                 <input type="hidden" name="id" value="${member.id}"/>
+                                <input type="hidden" name="type" value="${type}"/>
 
                                 <div class="control-group">
                                     <label class="control-label">账号</label>

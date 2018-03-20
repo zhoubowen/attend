@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping({"/admin/member/"})
 public class MemberManagerController
@@ -33,7 +35,7 @@ public class MemberManagerController
     }
 
     @RequestMapping({"input"})
-    public ModelAndView input(Integer memberId)
+    public ModelAndView input(Integer memberId, Integer type)
     {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/admin/memberInput");
@@ -42,19 +44,24 @@ public class MemberManagerController
         }else {
             Member member = this.memberService.findByMemberId(memberId);
             modelAndView.addObject("member", member);
+            modelAndView.addObject("type", type);
             return modelAndView;
         }
     }
 
     @RequestMapping({"save"})
-    public String save(Member memer)
+    public String save(Member memer, Integer type)
     {
         if(Objects.isNull(memer.getId())){
             memberService.add(memer);
         }else{
             memberService.update(memer);
         }
-        return "redirect:/admin/member/index";
+        if(Objects.nonNull(type)){
+            return "redirect:/admin/member/info";
+        }else{
+            return "redirect:/admin/member/index";
+        }
     }
 
     @RequestMapping({"delete"})
@@ -72,5 +79,15 @@ public class MemberManagerController
     public List<Member> memberList(){
         List<Member> list = memberService.findAllForValid();
         return list;
+    }
+
+    @RequestMapping("info")
+    public ModelAndView info(HttpServletRequest request){
+        Integer memberId = (Integer) request.getSession().getAttribute("memberId");
+        Member member = memberService.findByMemberId(memberId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/member/member");
+        modelAndView.addObject("member", member);
+        return modelAndView;
     }
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -74,7 +75,11 @@ public class FullcalendarController {
     public ModelAndView list(CalendarParam calendarParam, PageUtil pageUtil){
         ModelAndView modelAndView = new ModelAndView();
         List<Calendar> list = calendarService.findPageList(calendarParam, pageUtil);
-        modelAndView.setViewName("/admin/fullcalendarList");
+        if(Objects.nonNull(calendarParam.getMemberId())){
+            modelAndView.setViewName("/member/fullcalendarList");
+        }else{
+            modelAndView.setViewName("/admin/fullcalendarList");
+        }
         modelAndView.addObject("list", list);
         modelAndView.addObject("page", pageUtil);
         return modelAndView;

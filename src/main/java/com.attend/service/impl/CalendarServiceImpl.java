@@ -63,6 +63,9 @@ public class CalendarServiceImpl implements CalendarService {
     public List<Calendar> findPageList(CalendarParam calendarParam, PageUtil pageUtil){
         PageHelper.startPage(pageUtil.getPage(), pageUtil.getSize());
         Example example = new Example(Calendar.class);
+        if(Objects.nonNull(calendarParam.getMemberId())){
+            example.createCriteria().andEqualTo("userId", calendarParam.getMemberId());
+        }
 //        example.createCriteria().andEqualTo("type", leaveQueryParam.getType());
         example.setOrderByClause("id DESC");
         List<Calendar> list = calendarMapper.selectByExample(example);
