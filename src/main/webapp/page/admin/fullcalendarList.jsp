@@ -11,7 +11,7 @@
 
 <div class="page-container row-fluid">
 
-    <jsp:include page="menu.jsp?m=2" flush="true"/>
+    <jsp:include page="menu.jsp?m=4" flush="true"/>
 
     <div class="page-content">
 
