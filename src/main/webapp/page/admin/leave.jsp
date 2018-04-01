@@ -70,11 +70,25 @@
                                             <fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                         </td>
                                         <td class="center hidden-480">${item.days}</td>
-                                        <td class="center hidden-480">${item.status == 0 ? '待审批' : '审批通过'}</td>
+                                        <%--审核状态：0待审核，1审核通过，2拒绝--%>
+                                        <td class="center hidden-480">
+                                            <c:choose>
+                                                <c:when test="${item.status == 0}">
+                                                    待审批
+                                                </c:when>
+                                                <c:when test="${item.status == 1}">
+                                                    审批通过
+                                                </c:when>
+                                                <c:otherwise>
+                                                    审批不通过
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </td>
                                         <td >
                                             <c:choose>
                                                 <c:when test="${item.status == 0}">
-                                                    <a class="btn green" href="/admin/leave/update?type=${item.type}&id=${item.id}">同意</a>
+                                                    <a class="btn green" href="/admin/leave/update?type=${item.type}&id=${item.id}&status=1">同意</a>
+                                                    <a class="btn red" href="/admin/leave/update?type=${item.type}&id=${item.id}&&status=2">不同意</a>
                                                 </c:when>
                                                 <c:otherwise>
                                                     -

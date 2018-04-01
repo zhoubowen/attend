@@ -14,7 +14,7 @@
 
     <meta charset="utf-8"/>
 
-    <title>考勤管理后台</title>
+    <title>考勤系统后台</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="" name="description"/>
@@ -64,7 +64,7 @@
 
     <form class="form-vertical login-form" action="/admin/login" method="post">
 
-        <h3 class="form-title">管理员登录</h3>
+        <h3 class="form-title">员工登录</h3>
 
         <div class="alert alert-error hide">
 

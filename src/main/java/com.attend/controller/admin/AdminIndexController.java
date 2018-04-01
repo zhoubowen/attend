@@ -14,4 +14,12 @@ public class AdminIndexController
         modelAndView.setViewName("/admin/login");
         return modelAndView;
     }
+
+    @RequestMapping("/member")
+    public ModelAndView memberIndex()
+    {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/member/login");
+        return modelAndView;
+    }
 }

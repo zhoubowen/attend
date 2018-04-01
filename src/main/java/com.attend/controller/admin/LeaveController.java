@@ -48,7 +48,6 @@ public class LeaveController {
 
     @RequestMapping("update")
     public String update(Leave leave){
-        leave.setStatus(CommonConstant.VALID);
         leaveService.update(leave);
         return "redirect:/admin/leave/index?type=" + leave.getType();
     }
