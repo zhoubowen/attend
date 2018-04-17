@@ -26,10 +26,10 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/member/index">出差信息审批</a>
+                            <a href="/admin/member/index">出差信息</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">出差信息审批列表</a></li>
+                        <li><a href="#">出差信息列表</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,11 +41,14 @@
 
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="icon-globe"></i>出差信息审批列表
+                                <i class="icon-globe"></i>出差信息列表
                             </div>
                         </div>
 
                         <div class="portlet-body">
+
+                            <a class="btn green" href="/admin/leave/input?type=1">发布出差信息</a>
+                            <hr/>
 
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
@@ -54,8 +57,8 @@
                                     <th class="hidden-480">出差事由</th>
                                     <th class="hidden-480">出差时间</th>
                                     <th class="hidden-480">天数</th>
-                                    <th class="hidden-480">审批状态</th>
-                                    <th >操作</th>
+                                    <%--<th class="hidden-480">审批状态</th>--%>
+                                    <%--<th >操作</th>--%>
                                 </tr>
 
                                 </thead>
@@ -70,17 +73,17 @@
                                             <fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                         </td>
                                         <td class="center hidden-480">${item.days}</td>
-                                        <td class="center hidden-480">${item.status == 0 ? '待审批' : '审批通过'}</td>
-                                        <td >
-                                            <c:choose>
-                                                <c:when test="${item.status == 0}">
-                                                    <a class="btn green" href="/admin/leave/update?type=${item.type}&id=${item.id}">同意</a>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    -
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </td>
+                                        <%--<td class="center hidden-480">${item.status == 0 ? '待审批' : '审批通过'}</td>--%>
+                                        <%--<td >--%>
+                                            <%--<c:choose>--%>
+                                                <%--<c:when test="${item.status == 0}">--%>
+                                                    <%--<a class="btn green" href="/admin/leave/update?type=${item.type}&id=${item.id}">同意</a>--%>
+                                                <%--</c:when>--%>
+                                                <%--<c:otherwise>--%>
+                                                    <%-----%>
+                                                <%--</c:otherwise>--%>
+                                            <%--</c:choose>--%>
+                                        <%--</td>--%>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

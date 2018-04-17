@@ -53,7 +53,7 @@
                                     <th class="hidden-480">出差事由</th>
                                     <th class="hidden-480">出差时间</th>
                                     <th class="hidden-480">天数</th>
-                                    <th class="hidden-480">审批状态</th>
+                                    <%--<th class="hidden-480">审批状态</th>--%>
                                 </tr>
 
                                 </thead>
@@ -67,7 +67,7 @@
                                             <fmt:formatDate value="${item.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                         </td>
                                         <td class="center hidden-480">${item.days}</td>
-                                        <td class="center hidden-480">${item.status == 0 ? '待审批' : '审批通过'}</td>
+                                        <%--<td class="center hidden-480">${item.status == 0 ? '待审批' : '审批通过'}</td>--%>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

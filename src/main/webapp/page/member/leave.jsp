@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="portlet-body">
-                            <a class="btn green" href="/admin/leave/input">请假申请</a>
+                            <a class="btn green" href="/admin/leave/input?type=0">请假申请</a>
                             <hr/>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>

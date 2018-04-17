@@ -11,7 +11,7 @@
 
 <div class="page-container row-fluid">
 
-    <jsp:include page="menu.jsp?m=8" flush="true"/>
+    <jsp:include page="menu.jsp?m=3" flush="true"/>
 
     <div class="page-content">
 
@@ -26,8 +26,8 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="javascript:;">请假申请</a>
-                            <i class="icon-angle-right"></i>
+                            <a href="javascript:;">发布出差信息</a>
+                            <%--<i class="icon-angle-right"></i>--%>
                         </li>
                     </ul>
                 </div>
@@ -38,18 +38,28 @@
 
                     <div class="portlet box blue">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>请假申请表单</div>
+                            <div class="caption"><i class="icon-reorder"></i>出差信息表单</div>
                         </div>
                         <div class="portlet-body form">
 
                             <form action="/admin/leave/save" class="form-horizontal" method="post">
                                 <input type="hidden" name="type" value="${type}">
-
                                 <div class="control-group">
-                                    <label class="control-label">请假时间</label>
+                                    <label class="control-label">出差时间</label>
                                     <div class="controls">
                                         <input type="text" name="beginDate" class="m-wrap" value=""  id="beginDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd', maxDate:'#F{$dp.$D(\'endDate\')}'})" class="Wdate" >
                                         <input type="text" name="endDate" class="m-wrap" value="" id="endDate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',  minDate:'#F{$dp.$D(\'beginDate\')}'})" class="Wdate">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">出差人员</label>
+                                    <div class="controls">
+                                        <select name="userId">
+                                            <c:forEach items="${members}" var="member">
+                                                <option value="${member.id}">${member.name}</option>
+                                            </c:forEach>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -60,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label">请假理由</label>
+                                    <label class="control-label">出差事由</label>
                                     <div class="controls">
                                         <textarea name="content" rows="5" cols="20"></textarea>
                                     </div>
@@ -68,7 +78,7 @@
 
 
                                 <div class="form-actions">
-                                    <button type="submit" class="btn blue">提交申请</button>
+                                    <button type="submit" class="btn blue">保存</button>
                                     <a class="btn" href="javascript:history.go(-1)">返回</a>
                                 </div>
 

@@ -18,7 +18,7 @@
                         <li class="${param.m == 0 ? 'active' : '' }"><a href="/admin/member/index">员工管理</a></li>
                         <li class="${param.m == 1 ? 'active' : '' }"><a href="/admin/fullcalendar/index">排班管理</a></li>
                         <li class="${param.m == 2 ? 'active' : '' }"><a href="/admin/leave/index?type=0">请假信息审批</a></li>
-                        <li class="${param.m == 3 ? 'active' : '' }"><a href="/admin/leave/index?type=1">出差信息审批</a></li>
+                        <li class="${param.m == 3 ? 'active' : '' }"><a href="/admin/leave/index?type=1">出差信息管理</a></li>
                         <li class="${param.m == 4 ? 'active' : '' }"><a href="/admin/fullcalendar/list">员工考勤管理</a></li>
                         <li class="${param.m == 5 ? 'active' : '' }"><a href="/admin/fullcalendar/report">报表管理</a></li>
                     </ul>
